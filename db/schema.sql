@@ -4,12 +4,12 @@ CREATE DATABASE team_db;
 USE team_db;
 
 CREATE TABLE department (
-  department_id INT NOT NULL PRIMARY KEY,
+  department_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(30) NOT NULL
 );
 
 CREATE TABLE roles (
-  role_id DECIMAL NOT NULL PRIMARY KEY,
+  role_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(30) NOT NULL,
   salary DECIMAL NOT NULL,
   department_id INT NOT NULL,
@@ -18,12 +18,12 @@ CREATE TABLE roles (
 );
 
 CREATE TABLE employee (
-  employee_id INT NOT NULL PRIMARY KEY,
+  employee_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   first_name VARCHAR(30) NOT NULL,
   last_name VARCHAR(30) NOT NULL,
   department_id INT NOT NULL,
-  manager_id DECIMAL,
-  role_id DECIMAL NOT NULL,
+  manager_id INT,
+  role_id INT NOT NULL,
   FOREIGN KEY (role_id)
   REFERENCES roles(role_id)
 );
