@@ -99,7 +99,7 @@ const questions = () => {
 //-----View-----//
 viewAllDepartments = () => {
   const sql = `SELECT department.name AS department FROM department`;
-  console.log("hello")
+
 
   connect.query(sql, (err, res) => {
     if (err) throw err;
@@ -261,7 +261,7 @@ addEmployee = () => {
                 .then(managerChoice => {
                   const manager = managerChoice.manager;
                   params.push(manager);
-                  console.log(params)
+                  // console.log(params)
 
                   const empRoleSql = `SELECT role_id, title FROM roles`;
 
@@ -272,7 +272,7 @@ addEmployee = () => {
 
                     const roles = data.map(({ role_id, title }) => ({ name: title, value: role_id, }));
 
-                    console.log(roles)
+                    // console.log(roles)
                     inquirer.prompt([
 
                       {
@@ -283,7 +283,7 @@ addEmployee = () => {
                       },
                     ])
                       .then(roleChoice => {
-                        console.log(roleChoice)
+                        // console.log(roleChoice)
                         const role = roleChoice.role;
                         params.push(role);
 
@@ -329,7 +329,7 @@ updateEmployee = () => {
         const params = [];
         // console.log(params)
         params.push(employee);
-        console.log(params)
+        // console.log(params)
 
         const empRoleSql = `SELECT role_id, title FROM roles`;
 
@@ -352,7 +352,7 @@ updateEmployee = () => {
             .then(roleChoice => {
               const role = roleChoice.role;
               params.push(role);
-              console.log(params)
+              // console.log(params)
               //change order of array//
               let test = params[0]
               params[0] = role
